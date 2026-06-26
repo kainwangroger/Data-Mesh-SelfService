@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: finance_input
+    schema: input
+    tables:
+      - name: general_ledger
+        description: "General ledger accounting entries"
+        columns:
+          - name: entry_id
+            tests:
+              - unique
+              - not_null
+      - name: invoices
+        description: "Vendor invoices payable"
+        columns:
+          - name: invoice_id
+            tests:
+              - unique
+              - not_null

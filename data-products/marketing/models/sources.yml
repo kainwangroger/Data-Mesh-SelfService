@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: marketing_input
+    schema: input
+    tables:
+      - name: campaigns
+        description: "Marketing campaign definitions"
+        columns:
+          - name: campaign_id
+            tests:
+              - unique
+              - not_null
+      - name: campaign_results
+        description: "Daily campaign performance metrics"
+        columns:
+          - name: result_id
+            tests:
+              - unique
+              - not_null

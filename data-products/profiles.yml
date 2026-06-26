@@ -1,0 +1,41 @@
+config:
+  send_anonymous_usage_stats: false
+
+sales_domain:
+  outputs:
+    dev:
+      type: postgres
+      threads: 4
+      host: "{{ env_var('POSTGRES_HOST', 'localhost') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
+      user: "{{ env_var('POSTGRES_USER', 'admin') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'admin123') }}"
+      dbname: sales_db
+      schema: public
+  target: dev
+
+marketing_domain:
+  outputs:
+    dev:
+      type: postgres
+      threads: 4
+      host: "{{ env_var('POSTGRES_HOST', 'localhost') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
+      user: "{{ env_var('POSTGRES_USER', 'admin') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'admin123') }}"
+      dbname: marketing_db
+      schema: public
+  target: dev
+
+finance_domain:
+  outputs:
+    dev:
+      type: postgres
+      threads: 4
+      host: "{{ env_var('POSTGRES_HOST', 'localhost') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
+      user: "{{ env_var('POSTGRES_USER', 'admin') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'admin123') }}"
+      dbname: finance_db
+      schema: public
+  target: dev

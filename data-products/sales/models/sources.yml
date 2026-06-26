@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: sales_input
+    schema: input
+    tables:
+      - name: raw_transactions
+        description: "Raw transaction events from point-of-sale systems"
+        columns:
+          - name: transaction_id
+            description: "Unique transaction identifier"
+            tests:
+              - unique
+              - not_null
+      - name: customer_events
+        description: "Customer behavioral events (page views, cart adds, etc.)"
+        columns:
+          - name: event_id
+            description: "Unique event identifier"
+            tests:
+              - unique
+              - not_null
