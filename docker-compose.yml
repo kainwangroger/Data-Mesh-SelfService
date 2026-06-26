@@ -93,6 +93,7 @@ services:
       "
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
     volumes:
       - ./platform/governance/dags:/opt/airflow/dags
@@ -113,7 +114,9 @@ services:
       - "8080:8080"
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
+      AIRFLOW__WEBSERVER__WORKER_TIMEOUT: "300"
     volumes:
       - ./platform/governance/dags:/opt/airflow/dags
       - ./scripts:/opt/airflow/scripts
@@ -132,6 +135,7 @@ services:
     entrypoint: airflow scheduler
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
     volumes:
       - ./platform/governance/dags:/opt/airflow/dags
