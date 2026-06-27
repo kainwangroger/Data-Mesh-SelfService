@@ -67,5 +67,11 @@ st.markdown("### Derniers accès évalués")
 logs = api_get("/audit-logs?limit=10")
 if logs:
     df_logs = pd.DataFrame(logs)
-    display_cols = [c for c in ["created_at", "action", "actor", "resource_type", "resource_id", "details"] if c in df_logs.columns]
-    st.dataframe(df_logs[display_cols], use_container_width=True, hide_index=True)
+    display_cols = [c for c in ["created_at", "action", "actor", "resource_type", "resource_id"] if c in df_logs.columns]
+    st.dataframe(
+        df_logs[display_cols].rename(columns={
+            "created_at": "Date", "action": "Action", "actor": "Acteur",
+            "resource_type": "Type", "resource_id": "Cible",
+        }),
+        height=250, use_container_width=True, hide_index=True,
+    )
