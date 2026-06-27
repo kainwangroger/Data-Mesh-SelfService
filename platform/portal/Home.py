@@ -48,7 +48,7 @@ if data_products:
             "name": "Nom", "domain": "Domaine", "owner": "Propriétaire",
             "sla_tier": "SLA", "status": "Statut", "tags": "Tags",
         }),
-        height=400, use_container_width=False, hide_index=True,
+        height=250, use_container_width=False, hide_index=True,
         column_config={c: st.column_config.TextColumn(width=300) for c in ["Nom", "Domaine", "Propriétaire", "SLA", "Statut", "Tags"]},
     )
 
@@ -76,6 +76,6 @@ if logs:
             "created_at": "Date", "action": "Action", "actor": "Acteur",
             "resource_type": "Type", "resource_id": "Cible",
         }),
-        height=400, use_container_width=False, hide_index=True,
+        height=250, use_container_width=False, hide_index=True,
         column_config={c: st.column_config.TextColumn(width=300) for c in ["Date", "Action", "Acteur", "Type", "Cible"]},
     )
