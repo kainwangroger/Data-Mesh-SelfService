@@ -75,10 +75,10 @@ if logs:
         }),
         height=400, use_container_width=False, hide_index=True,
         column_config={
-            "Date": st.column_config.TextColumn(width=250),
-            "Action": st.column_config.TextColumn(width=150),
-            "Acteur": st.column_config.TextColumn(width=200),
-            "Type": st.column_config.TextColumn(width=200),
-            "Cible": st.column_config.TextColumn(width=300),
+            "Date": st.column_config.TextColumn(width=350),
+            "Action": st.column_config.TextColumn(width=250),
+            "Acteur": st.column_config.TextColumn(width=300),
+            "Type": st.column_config.TextColumn(width=300),
+            "Cible": st.column_config.TextColumn(width=400),
         },
     )
