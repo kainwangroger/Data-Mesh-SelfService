@@ -16,7 +16,7 @@ logs = api_get(f"/audit-logs?limit={limite}")
 if logs:
     df = pd.DataFrame(logs)
     cols_audit = [c for c in df.columns if c != "details"]
-    cfg = {c: st.column_config.TextColumn(width=300) for c in cols_audit}
+    cfg = {c: st.column_config.TextColumn(width=400) for c in cols_audit}
     st.dataframe(df[cols_audit], height=250, use_container_width=False, hide_index=True, column_config=cfg)
 
     st.markdown("### Activité dans le temps")

@@ -42,7 +42,7 @@ if policies:
             "priority": "Priorité", "enabled": "Activée",
         }),
         height=250, use_container_width=False, hide_index=True,
-        column_config={c: st.column_config.TextColumn(width=300) for c in ["Nom", "Type", "Effet", "Priorité", "Activée"]},
+        column_config={c: st.column_config.TextColumn(width=400) for c in ["Nom", "Type", "Effet", "Priorité", "Activée"]},
     )
 
     col1, col2 = st.columns(2)

@@ -49,7 +49,7 @@ if data_products:
             "sla_tier": "SLA", "status": "Statut", "tags": "Tags",
         }),
         height=250, use_container_width=False, hide_index=True,
-        column_config={c: st.column_config.TextColumn(width=300) for c in ["Nom", "Domaine", "Propriétaire", "SLA", "Statut", "Tags"]},
+        column_config={c: st.column_config.TextColumn(width=400) for c in ["Nom", "Domaine", "Propriétaire", "SLA", "Statut", "Tags"]},
     )
 
     cols = st.columns(2)
@@ -77,5 +77,5 @@ if logs:
             "resource_type": "Type", "resource_id": "Cible",
         }),
         height=250, use_container_width=False, hide_index=True,
-        column_config={c: st.column_config.TextColumn(width=300) for c in ["Date", "Action", "Acteur", "Type", "Cible"]},
+        column_config={c: st.column_config.TextColumn(width=400) for c in ["Date", "Action", "Acteur", "Type", "Cible"]},
     )
