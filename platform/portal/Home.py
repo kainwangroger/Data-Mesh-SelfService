@@ -74,4 +74,11 @@ if logs:
             "resource_type": "Type", "resource_id": "Cible",
         }),
         height=250, use_container_width=False, hide_index=True,
+        column_config={
+            "Date": st.column_config.TextColumn(width=250),
+            "Action": st.column_config.TextColumn(width=150),
+            "Acteur": st.column_config.TextColumn(width=200),
+            "Type": st.column_config.TextColumn(width=200),
+            "Cible": st.column_config.TextColumn(width=300),
+        },
     )
