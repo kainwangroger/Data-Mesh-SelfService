@@ -73,5 +73,5 @@ if logs:
             "created_at": "Date", "action": "Action", "actor": "Acteur",
             "resource_type": "Type", "resource_id": "Cible",
         }),
-        height=250, use_container_width=True, hide_index=True,
+        height=250, use_container_width=False, hide_index=True,
     )
