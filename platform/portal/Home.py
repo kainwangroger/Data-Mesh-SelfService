@@ -44,9 +44,19 @@ st.markdown("### Data Products")
 if data_products:
     df = pd.DataFrame(data_products)
     st.dataframe(
-        df[["name", "domain", "owner", "sla_tier", "status", "tags"]],
-        use_container_width=True,
-        hide_index=True,
+        df[["name", "domain", "owner", "sla_tier", "status", "tags"]].rename(columns={
+            "name": "Nom", "domain": "Domaine", "owner": "Propriétaire",
+            "sla_tier": "SLA", "status": "Statut", "tags": "Tags",
+        }),
+        height=400, use_container_width=False, hide_index=True,
+        column_config={
+            "Nom": st.column_config.TextColumn(width=250),
+            "Domaine": st.column_config.TextColumn(width=200),
+            "Propriétaire": st.column_config.TextColumn(width=250),
+            "SLA": st.column_config.TextColumn(width=150),
+            "Statut": st.column_config.TextColumn(width=150),
+            "Tags": st.column_config.TextColumn(width=300),
+        },
     )
 
     cols = st.columns(2)

@@ -34,8 +34,18 @@ contrats = api_get("/data-contracts")
 if contrats:
     df = pd.DataFrame(contrats)
     st.dataframe(
-        df[["name", "provider_domain", "consumer_domain", "data_product_name", "status"]],
-        use_container_width=True, hide_index=True,
+        df[["name", "provider_domain", "consumer_domain", "data_product_name", "status"]].rename(columns={
+            "name": "Nom", "provider_domain": "Fournisseur", "consumer_domain": "Consommateur",
+            "data_product_name": "Produit", "status": "Statut",
+        }),
+        height=400, use_container_width=False, hide_index=True,
+        column_config={
+            "Nom": st.column_config.TextColumn(width=250),
+            "Fournisseur": st.column_config.TextColumn(width=200),
+            "Consommateur": st.column_config.TextColumn(width=200),
+            "Produit": st.column_config.TextColumn(width=250),
+            "Statut": st.column_config.TextColumn(width=150),
+        },
     )
 
     col1, col2 = st.columns(2)
