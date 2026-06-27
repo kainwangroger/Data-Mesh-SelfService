@@ -1,0 +1,7 @@
+prefix               = "datamesh"
+location             = "West Europe"
+resource_group_name  = "rg-data-mesh"
+db_admin_user        = "admin"
+db_admin_password    = "your-secure-password-here"
+governance_image     = "datamesh-governance:latest"
+portal_image         = "datamesh-portal:latest"

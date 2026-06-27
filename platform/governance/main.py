@@ -7,6 +7,7 @@ FastAPI service exposant :
 """
 
 import os
+from pathlib import Path
 from datetime import datetime, timezone
 from contextlib import asynccontextmanager
 
@@ -32,6 +33,9 @@ SessionLocal = sessionmaker(bind=engine)
 
 
 def init_db():
+    db_path = GOVERNANCE_DB.replace("sqlite:///", "").replace("sqlite://", "")
+    if db_path:
+        Path(db_path).parent.mkdir(parents=True, exist_ok=True)
     Base.metadata.create_all(engine)
     db = SessionLocal()
     try:
@@ -172,6 +176,7 @@ def create_domain(d: DomainCreate, db: Session = Depends(get_db)):
     db.add(obj)
     db.commit()
     db.refresh(obj)
+    _log_audit(db, "create", d.owner or "admin", "domain", obj.name)
     return obj
 
 

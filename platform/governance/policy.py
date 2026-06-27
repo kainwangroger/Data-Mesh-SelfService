@@ -53,9 +53,9 @@ class PolicyEngine:
             if not any(re.match(p, actor) for p in rule["actors"]):
                 return False
 
-        # Match action
+        # Match action (supports "*" wildcard for all actions)
         if "actions" in rule:
-            if action not in rule["actions"]:
+            if "*" not in rule["actions"] and action not in rule["actions"]:
                 return False
 
         # Match resource attributes
@@ -73,7 +73,7 @@ class PolicyEngine:
                     if resource.get("sla_tier") not in allowed_tiers:
                         return False
                 if cond_key == "max_cost_per_query":
-                    if resource.get("estimated_cost", 0) > cond_val:
+                    if resource.get("estimated_cost", 0) <= cond_val:
                         return False
 
         return True

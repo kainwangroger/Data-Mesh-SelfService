@@ -1,0 +1,26 @@
+{
+  "title": "Data Mesh Self-Service",
+  "panels": [
+    {
+      "title": "Governance API Health",
+      "type": "stat",
+      "targets": [
+        {"expr": "up{job=\"governance-api\"}"}
+      ]
+    },
+    {
+      "title": "Data Products Created",
+      "type": "stat",
+      "targets": [
+        {"expr": "rate(data_products_created_total[1h])"}
+      ]
+    },
+    {
+      "title": "Policy Evaluations",
+      "type": "timeseries",
+      "targets": [
+        {"expr": "rate(policy_evaluations_total[5m])"}
+      ]
+    }
+  ]
+}
