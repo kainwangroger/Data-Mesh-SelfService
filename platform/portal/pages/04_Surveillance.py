@@ -15,14 +15,8 @@ limite = st.slider("Nombre d'entrées", 5, 100, 20)
 logs = api_get(f"/audit-logs?limit={limite}")
 if logs:
     df = pd.DataFrame(logs)
-    st.dataframe(
-        df.rename(columns={
-            "created_at": "Date", "action": "Action", "actor": "Acteur",
-            "resource_type": "Type", "resource_id": "Cible",
-        }),
-        height=400, use_container_width=False, hide_index=True,
-        column_config={"Date": st.column_config.TextColumn(width=250)},
-    )
+    cfg = {c: st.column_config.TextColumn(width=300) for c in df.columns}
+    st.dataframe(df, height=400, use_container_width=False, hide_index=True, column_config=cfg)
 
     st.markdown("### Activité dans le temps")
     df["date"] = pd.to_datetime(df["created_at"]).dt.date

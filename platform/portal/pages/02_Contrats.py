@@ -39,13 +39,7 @@ if contrats:
             "data_product_name": "Produit", "status": "Statut",
         }),
         height=400, use_container_width=False, hide_index=True,
-        column_config={
-            "Nom": st.column_config.TextColumn(width=250),
-            "Fournisseur": st.column_config.TextColumn(width=200),
-            "Consommateur": st.column_config.TextColumn(width=200),
-            "Produit": st.column_config.TextColumn(width=250),
-            "Statut": st.column_config.TextColumn(width=150),
-        },
+        column_config={c: st.column_config.TextColumn(width=300) for c in ["Nom", "Fournisseur", "Consommateur", "Produit", "Statut"]},
     )
 
     col1, col2 = st.columns(2)

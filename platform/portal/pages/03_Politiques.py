@@ -42,13 +42,7 @@ if policies:
             "priority": "Priorité", "enabled": "Activée",
         }),
         height=400, use_container_width=False, hide_index=True,
-        column_config={
-            "Nom": st.column_config.TextColumn(width=250),
-            "Type": st.column_config.TextColumn(width=200),
-            "Effet": st.column_config.TextColumn(width=150),
-            "Priorité": st.column_config.NumberColumn(width=120),
-            "Activée": st.column_config.CheckboxColumn(width=120),
-        },
+        column_config={c: st.column_config.TextColumn(width=300) for c in ["Nom", "Type", "Effet", "Priorité", "Activée"]},
     )
 
     col1, col2 = st.columns(2)
