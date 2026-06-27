@@ -41,8 +41,7 @@ if policies:
             "name": "Nom", "policy_type": "Type", "effect": "Effet",
             "priority": "Priorité", "enabled": "Activée",
         }),
-        height=250, use_container_width=False, hide_index=True,
-        column_config={c: st.column_config.TextColumn(width=400) for c in ["Nom", "Type", "Effet", "Priorité", "Activée"]},
+        height=250, use_container_width=True, hide_index=True,
     )
 
     col1, col2 = st.columns(2)
